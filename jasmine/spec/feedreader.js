@@ -31,6 +31,7 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+         //https://www.raymonschouwenaar.nl/let-jasmine-loop-array-data-validate-email-validation-javascript-example/
          it('each feed ahs url & not empty', function() {
            allFeeds.forEach(function(feed) {
              expect(feed.url).toBeDefined();
@@ -42,6 +43,7 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+         //https://www.raymonschouwenaar.nl/let-jasmine-loop-array-data-validate-email-validation-javascript-example/
          it('each feed has name & not empty', function() {
            allFeeds.forEach(function(feed) {
              expect(feed.name).toBeDefined();
@@ -73,6 +75,7 @@ $(function() {
           */
         it('toggle class "menu-hidden" on click', function() {
           //show menu when clicking on menuIcon
+          //https://gist.github.com/davilious/9503539
           menuIcon.trigger('click');
           expect(body.hasClass('menu-hidden')).toBe(false);
           //hide menu when clicking menuIcon
@@ -90,6 +93,7 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         //load feed before test
+        //https://www.htmlgoodies.com/beyond/javascript/stips/using-jasmine-2.0s-new-done-function-to-test-asynchronous-processes.html
         beforeEach(function(done) {
            loadFeed(0, function() {
              done();
@@ -113,6 +117,7 @@ $(function() {
          let newFeed;
 
          //load the first feed before the comparision
+         //https://www.htmlgoodies.com/beyond/javascript/stips/using-jasmine-2.0s-new-done-function-to-test-asynchronous-processes.html
          beforeEach(function(done) {
             loadFeed(0, function() {
               orgFeed = $('.feed');
