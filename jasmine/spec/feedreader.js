@@ -100,9 +100,8 @@ $(function() {
            });
         });
         //ensure more than one entry for feed
-        it('feed should have one entry', function(done) {
-          expect($('.entry').length).not.toBe(0);
-          done();
+        it('feed should have one entry', function() {
+          expect($('.feed .entry').length).not.toBe(0);
         });
 
     });
@@ -120,7 +119,7 @@ $(function() {
          //https://www.htmlgoodies.com/beyond/javascript/stips/using-jasmine-2.0s-new-done-function-to-test-asynchronous-processes.html
          beforeEach(function(done) {
             loadFeed(0, function() {
-              orgFeed = $('.feed');
+              orgFeed = $('.feed').html();
               done();
             });
          });
@@ -128,8 +127,8 @@ $(function() {
          //load the second feed and compare to original
          it('check if new feed loaded', function(done) {
            loadFeed(2, function() {
-             newFeed = $('.feed');
-             expect(orgFeed).not.toBe(newFeed);
+             newFeed = $('.feed').html();
+             expect(orgFeed).not.toEqual(newFeed);
              done();
            });
          });
