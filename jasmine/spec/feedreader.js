@@ -72,10 +72,10 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
         it('toggle class "menu-hidden" on click', function() {
-          //show menu on click
+          //show menu when clicking on menuIcon
           menuIcon.trigger('click');
           expect(body.hasClass('menu-hidden')).toBe(false);
-          //hide menue on click
+          //hide menu when clicking menuIcon
           menuIcon.trigger('click');
           expect(body.hasClass('menu-hidden')).toBe(true);
 
@@ -89,12 +89,13 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+        //load feed before test
         beforeEach(function(done) {
            loadFeed(0, function() {
              done();
            });
         });
-
+        //ensure more than one entry for feed
         it('feed should have one entry', function(done) {
           expect($('.entry').length).not.toBe(0);
           done();
@@ -107,9 +108,11 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+         //declare variables for comparing feeds
          let orgFeed;
          let newFeed;
 
+         //load the first feed before the comparision
          beforeEach(function(done) {
             loadFeed(0, function() {
               orgFeed = $('.feed');
@@ -117,6 +120,7 @@ $(function() {
             });
          });
 
+         //load the second feed and compare to original
          it('check if new feed loaded', function(done) {
            loadFeed(2, function() {
              newFeed = $('.feed');
